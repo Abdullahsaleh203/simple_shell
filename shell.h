@@ -10,12 +10,12 @@
 #include <fcntl.h>
 #include <linux/limits.h>
 #include <dirent.h>
-/*my macros*/
+/*my owne macros*/
 #define INTERACTIVE 1
 #define NON_INTERACTIVE_FILE 0
 #define NON_INTERACTIVE_PIPED 2
 #define ERROR -1
-/*Error status macros*/
+/*The Error status macros*/
 #define NOT_FOUND 127
 #define PERMISSION_DENIED 126
 #define EXIT_ERROR 2
@@ -26,6 +26,7 @@ extern char **environ;
  * @path: string
  * @len: length of the string
  * @next: points to the next node
+ *
  * Description: singly linked list node structure
  */
 typedef struct _list_paths
@@ -49,7 +50,7 @@ _list_paths *set_all_paths_to_list();
 _list_paths *set_all_vector_to_list();
 char **get_av_with_flags(char *line, int status);
 unsigned int char_count(char *str, char c);
-/*-------------------------*/
+/*----------*/
 void free_all(char **lines, int counter, _list_paths *env,
 _list_paths *current, char *line, char **line_vector);
 int _varcmp(char *var_name, char *full_var);
@@ -78,11 +79,11 @@ char *program_shell, int counter, int *status, _list_paths *env, char **lines);
 void print_error(char *program_shell, int counter,
 char *command, int type_of_error);
 void handle_comments(char *input);
-/*---*/
+/*=___=*/
 void handle_semicolons(char *line);
 void execute_command_with_waitpid(c
 har *path, char **av, char **env);
-/*---*/
+/*----*/
 char *num_to_char(int num);
 char *check_access(char *line_av_1, _list_paths *current);
 void execute_command(char *path, char **av, char **env, int *status);
