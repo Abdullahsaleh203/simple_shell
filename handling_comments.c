@@ -1,8 +1,7 @@
 #include "shell.h"
 /**
- * The header file 
- * @handle_comments: handle comments file
- * @line: line 
+ * handle_comments - .
+ * @line: line.
  * Return: void
  */
 void handle_comments(char *line)
@@ -10,7 +9,7 @@ void handle_comments(char *line)
 	int len = _strlen(line);
 	int x = 0;
 	int _strating = 0;
-// handle_comments.
+/*handle_comments*/
 	for (x = 0; x < len; x++)
 	{
 		if (line[x] == ' ')
@@ -24,7 +23,7 @@ void handle_comments(char *line)
 				line[x] = '\0';
 				break;
 			}
-		}	
+		}
 		else
 		{
 			_strating = 1;
@@ -32,12 +31,14 @@ void handle_comments(char *line)
 	}
 }
 
-/*****
- * _cd - change the direction
- * @line_vector: line vector to change the direction
- * @argv: arguments v
- * Return: 1
+/**
+ * _cd - Changes the current directory.
+ * @line_vector: The vector containing the command and arguments.
+ * @argv: The program name.
+ *
+ * Return: 1 on failure.
  */
+
 int _cd(char **line_vector, char **argv)
 {
 	char *dir = line_vector[1];
@@ -75,16 +76,16 @@ int _cd(char **line_vector, char **argv)
 	return (0);
 }
 /****
- * free_all - free all resources
- * @lines: lines to free
- * @counter: counter of free_all
- * @_list_paths: list of paths 
- * @env: environment variable
- * @current: current variable
- * @line: line number
- * @line_vector: line vector
- * @free_list:free list of free
- * @free_li_vec: free list of vector
+ * free_all - free all resources.
+ * @lines: lines to free.
+ * @counter: counter of free_all.
+ * @_list_paths: list of paths.
+ * @env: environment variable.
+ * @current: current variable.
+ * @line: line number.
+ * @line_vector: line vector.
+ * @free_list:free list of free.
+ * @free_li_vec: free list of vector.
  * Return: void
  *
  */
