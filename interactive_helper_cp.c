@@ -1,8 +1,10 @@
 #include "shell.h"
+
 /**
- * @get_command_from_user:   -.-
- * @current:    -.-
- * Return:  line .
+ * get_command_from_user - Get a command from the user interactively.
+ * @current: The current variable.
+ *
+ * Return: The entered line.
  */
 char *get_command_from_user(_list_paths *current)
 {
@@ -29,13 +31,15 @@ char *get_command_from_user(_list_paths *current)
 
 	return (line);
 }
-/**
- * @get_command_from_file:-get_command_from_file .
- * @file: .....
- * Return: file -.
- */
 
+/**
+ * get_command_from_file - Get a command from a file.
+ * @file: The file to read from.
+ *
+ * Return: The content of the file.
+ */
 char *get_command_from_file(char *file)
 {
 	return (file);
 }
+
