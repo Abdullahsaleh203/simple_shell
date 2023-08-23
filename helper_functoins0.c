@@ -1,9 +1,11 @@
 #include "shell.h"
-/**** 
-*header file shell.h"
- * _list_paths
- * @get_variable:
- * Return:
+
+/**
+ * get_variable - Get a var from a linked list.
+ * @name: The name of the var.
+ * @head: The head of the linked list.
+ *
+ * Return: Pointer to the var node or NULL if not found.
  */
 _list_paths *get_variable(char *name, _list_paths *head)
 {
@@ -16,11 +18,13 @@ _list_paths *get_variable(char *name, _list_paths *head)
 
 	return (NULL);
 }
+
 /**
- * _varcmp:-
- * @var_name: 
- * @full_var:
- * Return: (-1) 
+ * _varcmp - compare variable names.
+ * @var_name: the variable name to compare.
+ * @full_var: the full var str.
+ *
+ * Return: (-1).
  */
 int _varcmp(char *var_name, char *full_var)
 {
@@ -37,12 +41,12 @@ int _varcmp(char *var_name, char *full_var)
 
 	return (-1);
 }
-/****
- * @num_to_char:
- * @cp_num: number to be converted
- * @num:
- * @cp:
- * Return:  cp_num
+
+/**
+ * num_to_char - convert a number to a string.
+ * @num: the number to convert.
+ *
+ * Return: the converted str.
  */
 char *num_to_char(int num)
 {
@@ -61,12 +65,14 @@ char *num_to_char(int num)
 			cp++;
 		}
 	}
+
 	cp_num = malloc(sizeof(char) * (c + 1));
 	if (!cp_num)
 	{
 		perror("malloc");
 		return (NULL);
 	}
+
 	cp_num[cp] = '\0';
 	while (cp != 0)
 	{
@@ -74,24 +80,28 @@ char *num_to_char(int num)
 		cp_num[c] = '0' + num % 10;
 		num /= 10;
 	}
+
 	return (cp_num);
 }
+
 /**
- * @char_count_piped:
- * @str:  ptr str
- * @c: char c 
- * @count: number
- * Return:  count + 1
+ * char_count_piped - Count occurrences of a character in a string.
+ * @str: The input string.
+ * @c: The character to count.
+ *
+ * Return: The count of occurrences-1.
  */
 unsigned int char_count_piped(char *str, char c)
 {
 	unsigned int count = 0;
-// unsigned int
+
 	while (*str != '\0')
 	{
 		if (*str == c)
 			count++;
 		str++;
 	}
+
 	return (count + 1);
 }
+

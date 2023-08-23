@@ -1,9 +1,13 @@
 #include "shell.h"
-/**** 
- * helper functions
- * @et_av_with_flags_helper:
- * Return: cmd
- */ 
+
+/**
+ * get_av_with_flags_helper - helper function for getting argument with flags.
+ * @token: The token.
+ * @line: The input line.
+ * @av: The array of arguments.
+ * @status: The status.
+ * Return: The command.
+ */
 char *get_av_with_flags_helper(char *token, char *line, char **av, int status)
 {
 		char *var, *cmd, *line_cpy;
@@ -32,10 +36,12 @@ char *get_av_with_flags_helper(char *token, char *line, char **av, int status)
 
 	return (cmd);
 }
-/***
- * @get_av_with_flags:
- * Return: av
- */ 
+/**
+ * get_av_with_flags - get arguments with flags from input line.
+ * @line: the input line.
+ * @status: the status.
+ * Return: the array of arguments.
+ */
 char **get_av_with_flags(char *line, int status)
 {
 	char *line_cpy, *token, **av, *var, *cmd;
@@ -78,9 +84,11 @@ char **get_av_with_flags(char *line, int status)
 	free(line_cpy);
 	return (av);
 }
-/****
- * @exit_check:
- * Return: void
+/**
+ * exit_check - check for exit command.
+ * @nread: the number of characters read.
+ * @exit_cmd: the exit command.
+ * Return: void.
  */
 void exit_check(int nread, char *exit_cmd)
 {
@@ -99,9 +107,10 @@ void exit_check(int nread, char *exit_cmd)
 	}
 }
 
-/****
- * @_getenv:
- * Return:  NULL
+/**
+ * _getenv - get value of an env var.
+ * @name: the name of the env variable.
+ * Return: the value of the env var, or NULL if not found.
  */
 char *_getenv(char *name)
 {
@@ -124,9 +133,11 @@ char *_getenv(char *name)
 	}
 	return (NULL);
 }
-/*****
- * @char_count:
- * Return:  count + 1
+/**
+ * char_count - count occurrences of a character in a string.
+ * @str: the input string.
+ * @c: the character to count.
+ * Return: the count of occurrences.
  */
 unsigned int char_count(char *str, char c)
 {
