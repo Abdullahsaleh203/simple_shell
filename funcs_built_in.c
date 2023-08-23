@@ -1,9 +1,7 @@
 #include "shell.h"
 /**
- * The header file 
- * function bulit_in
- * @print_env:
- * @status: i
+ * print_env - .
+ * @status: .
  * Return: void
  */
 void print_env(int *status)
@@ -15,15 +13,13 @@ void print_env(int *status)
 		write(STDOUT_FILENO, environ[s], _strlen(environ[s]));
 		write(STDOUT_FILENO, "\n", 1);
 	}
-	*status = 0; 
-	/*success
-	*status = 0 
-	*/
+	*status = 0;
+
 }
 /**
- * @get_status:
- * @n:
- * Return:ppid_s
+ * get_status - .
+ * @n: .
+ * Return: .
  */
 char *get_status(int n)
 {
@@ -33,8 +29,8 @@ char *get_status(int n)
 	return (status);
 }
 /**
- * get_process_id : ()
- * Return: ppid_s
+ * get_process_id - .
+ * Return: .
  */
 char *get_process_id()
 {
@@ -46,17 +42,17 @@ char *get_process_id()
 	return (ppid_s);
 }
 /**
- * is_built_in - 
- * @line: 
- * @line_vector: 
- * @current: 
- * @program_shell: program_shell
- * @counter: 
- * @status: 
- * @env_list: 
- * @lines: 
- * @argv: 
- * Return: (-1)
+ * is_built_in --.
+ * @line: .
+ * @line_vector: .
+ * @current: .
+ * @program_shell: .
+ * @counter: .
+ * @status: .
+ * @env_list: .
+ * @lines: .
+ * @argv: .
+ * Return: .
  */
 int is_built_in(char *line, char **line_vector, _list_paths *current,
 	char *program_shell, int counter, int *status, _list_paths *env_list,
@@ -100,11 +96,11 @@ int is_built_in(char *line, char **line_vector, _list_paths *current,
 	return (0);
 }
 /**
- * @_setenv: functions
- * @name: bulit in function
- * @value: pointer value
- * @env_list: enveromint list
- * Return: NULL
+ * _setenv - .
+ * @name: .
+ * @value: .
+ * @env_list: .
+ * Return: void
  */
 void _setenv(char *name, char *value, _list_paths *env_list)
 {
