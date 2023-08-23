@@ -1,10 +1,10 @@
 #include "shell.h"
 /**
- * get_commands 
- * @o_mode:----
- * @file_name:----
- * @program_shell:----
- * Return: (!lines)
+ * get_commands - get commands based on the execution mode.
+ * @o_mode: the execution mode.
+ * @file_name: the file name if applicable.
+ * @program_shell: the name of the shell program.
+ * Return: array of strings containing the commands.
  */
 char **get_commands(int o_mode, char *file_name, char *program_shell)
 {
@@ -25,8 +25,8 @@ char **get_commands(int o_mode, char *file_name, char *program_shell)
 	return (lines);
 }
 /**
- * piped_non_interactive - .
- * Return: .
+ * piped_non_interactive - Get commands from non-interactive piped input.
+ * Return: array of str containing the commands.
  */
 char **piped_non_interactive()
 {
@@ -71,10 +71,11 @@ char **piped_non_interactive()
 	}
 	return (lines);
 }
+
 /**
- * text_to_vector - .
+ * text_to_vector  .
  * @text: .
- * Return: .
+ * Return: lines.
  */
 char **text_to_vector(char *text)
 {
@@ -82,6 +83,7 @@ char **text_to_vector(char *text)
 	char **lines = NULL;
 	int i = 0;
 	unsigned int c_count = 0;
+
 	c_count = char_count_piped(text, '\n');
 	lines = (char **)malloc((c_count + 1) * sizeof(char *));
 	token = _strtok(text, "\n");
@@ -101,10 +103,10 @@ char **text_to_vector(char *text)
 	return (lines);
 }
 /**
- * file_non_interactive -.-
- * @file_name:  -.-
- * @program_shell:  -.-
- * Return: NULL
+ * file_non_interactive get commands from a non-interactive file.
+ * @file_name: The name of the shell program.
+ * @program_shell:  The name of the shell program.
+ * Return: array of string containing the commands
  */
 char **file_non_interactive(char *file_name, char *program_shell)
 {
