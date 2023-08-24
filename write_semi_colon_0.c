@@ -1,11 +1,12 @@
 #include "shell.h"
+
 /**
- * the print_error - 
- * @program_shell: 
- * @counter_s: 
- * @command_line: 
- * @type_of_error: 
- * Return: void
+ * print_error - Print ERROR messages based on ERROR type.
+ * @program_shell: Shell program name.
+ * @counter: Command counter.
+ * @command_line: Command line that caused the ERROR.
+ * @type_of_error: Type of error.
+ * Return: void.
  */
 void print_error(char *program_shell, int counter,
 		char *command_line, int type_of_error)
@@ -32,21 +33,20 @@ void print_error(char *program_shell, int counter,
 		write(STDERR_FILENO, command_line, _strlen(command_line));
 		write(STDERR_FILENO, "\n", 1);
 	}
-	/* free the memory allocated for the converted command counter_s */
 	free(counter_s);
 }
+
 /**
- * print_cant_open : print  can't be opened
- * @program_shell: shell program
- * @counter_s:  counter 
- * @file_name: the file name
- * Return: void() 
- * free counter_s
+ * print_cant_open - Print error message for a file that can't be opened.
+ * @program_shell: shell program name.
+ * @counter: command counter.
+ * @file_name: name of the file that can't be opened.
+ * Return: void.
  */
 void print_cant_open(char *program_shell, int counter, char *file_name)
 {
-
 	char *counter_s;
+
 	counter_s = num_to_char(counter);
 	write(STDERR_FILENO, program_shell, _strlen(program_shell));
 	write(STDERR_FILENO, ": ", 2);
@@ -57,3 +57,4 @@ void print_cant_open(char *program_shell, int counter, char *file_name)
 	write(STDERR_FILENO, "\n", 1);
 	free(counter_s);
 }
+

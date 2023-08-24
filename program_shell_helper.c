@@ -1,8 +1,10 @@
 #include "shell.h"
 
-
-// check_mode 
-
+/**
+ * check_mode - Determine the operating mode of the shell.
+ * @argc: Argument count.
+ * Return: Operating mode.
+ */
 int check_mode(int argc)
 {
 	struct stat stdin_stat;
@@ -18,10 +20,19 @@ int check_mode(int argc)
 	return (ERROR);
 }
 
-
-//is_exit 
-void is_exit(char *line, char **line_vector, list_path *current,
-		char *program_shell, int counter, int *status, list_path *env, char **lines)
+/**
+ * is_exit - Check if the command is an "exit" command.
+ * @line: Command line.
+ * @line_vector: Command line split into arg.
+ * @current: Ptr to the current path list.
+ * @program_shell: Name of the shell program.
+ * @counter: Command counter.
+ * @status: Ptr to the exit status.
+ * @env: Ptr to the environment path list.
+ * @lines: Ptr to command lines.
+ */
+void is_exit(char *line, char **line_vector, _list_paths *current,
+		char *program_shell, int counter, int *status, _list_paths *env, char **lines)
 {
 	int n;
 
@@ -56,11 +67,17 @@ void is_exit(char *line, char **line_vector, list_path *current,
 		}
 	}
 }
-// _atoi 
+
+/**
+ * _atoi - convert a string to an int.
+ * @s: Input str.
+ * Return: converted int, or -1 if not a valid int.
+ */
 int _atoi(char *s)
 {
 	unsigned int x, l;
-	char positive;
+	char positive = 0;
+
 	x = 0;
 	l = 0;
 	while (s[l] != '\0')
@@ -82,11 +99,17 @@ int _atoi(char *s)
 	return (x);
 }
 
-// >> execute_command <<
+/**
+ * execute_command - Exe a command.
+ * @path: Path of the command.
+ * @av: Command arg.
+ * @env: env var.
+ * @status: exit status.
+ */
 void execute_command(char *path, char **av, char **env, int *status)
 {
 	pid_t pid;
-// fork();
+
 	pid = fork();
 	if (pid == ERROR)
 	{
@@ -100,12 +123,15 @@ void execute_command(char *path, char **av, char **env, int *status)
 	}
 	else if (pid > 0)
 	{
-
 		waitpid(pid, status, WUNTRACED);
 		*status  = WEXITSTATUS(*status);
 	}
 }
-// >> free_vector 
+
+/**
+ * free_vector - free a vector of strings.
+ * @argv: Vector to free.
+ */
 void free_vector(char **argv)
 {
 	char **curr;
@@ -121,5 +147,5 @@ void free_vector(char **argv)
 	}
 
 	free(argv);
-	// free argv.
 }
+

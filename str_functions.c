@@ -1,17 +1,15 @@
 #include "shell.h"
 
 /**
- * _strlen - returns the length of a String.
- * @s: a pointer to the strings
- * in the string using a loop. It returns the length of
- * Return: the length of the string *s
+ * _strlen - Returns the length of a str.
+ * @s: A Ptr to the str.
+ * Return: The length of the str.
  */
 int _strlen(char *s)
 {
-	int len;
+	int len = 0;
 
-	len = 0;
-	if (s[0] == '\0')
+	if (s == NULL)
 		return (0);
 
 	while (s[len] != '\0')
@@ -22,29 +20,29 @@ int _strlen(char *s)
 }
 
 /**
- * _strcmp - compares too the strings
- * @s1: ptr of the first string
- * @s2: ptr of the second string
- * Return: 0
+ * _strcmp - Compares two str.
+ * @s1: Ptr to the first str.
+ * @s2: Ptr to the second str.
+ * Return: 0 if strs are equal, positive + if s1 > s2, - negative if s1 < s2.
  */
 int _strcmp(char *s1, char *s2)
 {
-    int i = 0;
+	int i = 0;
 
-    while ((s1[i] != '\0') || (s2[i] != '\0'))
-    {
-        if (s1[i] - s2[i] != 0)
-            return (s1[i] - s2[i]);
-        i++;
-    }
+	while (s1[i] != '\0' || s2[i] != '\0')
+	{
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
+		i++;
+	}
 
-    return 0;
+	return (0);
 }
 
 /**
- * _strdup - creates an array of chars
- * @str: The array size
- * Return: array refrance or NULL
+ * _strdup - Creates a duplicate of a str.
+ * @str: The str to duplicate.
+ * Return: A Ptr to the duplicated str.
  */
 char *_strdup(char *str)
 {
@@ -53,20 +51,21 @@ char *_strdup(char *str)
 
 	if (str == NULL)
 		return (NULL);
+
 	len = _strlen(str);
-	arr = malloc((sizeof(char) * len) + 1);
+	arr = malloc(sizeof(char) * (len + 1));
 	if (arr == NULL)
 		return (NULL);
-	arr[len] = '\0';
-	while (len--)
-		arr[len] = str[len];
+
+	_strcpy(arr, str);
 	return (arr);
 }
+
 /**
- * _strcpy - copies a string pointed
- * @dest: char ptr
- * @src: char ptr
- * Return: char ptr to destination
+ * _strcpy - Copies a str.
+ * @dest: destination buffer.
+ * @src: Source st.
+ * Return: A Ptr to the destination str.
  */
 char *_strcpy(char *dest, char *src)
 {
@@ -79,17 +78,18 @@ char *_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
 /**
- * _strcat - concatenates two arrays(string)
- * @dest: character pointer left side
- * @src: character pointer right side
- * Return: return a pointer to the resulting string dest
+ * _strcat - concatenates two str.
+ * @dest: Destination str.
+ * @src: Source str.
+ * Return: A Ptr to the resulting str.
  */
 char *_strcat(char *dest, char *src)
 {
-	int len, i;
+	int len = _strlen(dest);
+	int i;
 
-	len = _strlen(dest);
 	for (i = 0; src[i] != '\0'; i++)
 	{
 		dest[len + i] = src[i];
@@ -97,3 +97,4 @@ char *_strcat(char *dest, char *src)
 	dest[len + i] = '\0';
 	return (dest);
 }
+
