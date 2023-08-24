@@ -66,7 +66,7 @@ char *num_to_char(int num)
 		}
 	}
 
-	cp_num = malloc(sizeof(char) * (c + 1));
+	cp_num = malloc(sizeof(char) * (cp + 1));
 	if (!cp_num)
 	{
 		perror("malloc");
@@ -77,7 +77,7 @@ char *num_to_char(int num)
 	while (cp != 0)
 	{
 		cp--;
-		cp_num[c] = '0' + num % 10;
+		cp_num[cp] = '0' + num % 10;
 		num /= 10;
 	}
 
@@ -87,17 +87,17 @@ char *num_to_char(int num)
 /**
  * char_count_piped - Count occurrences of a character in a string.
  * @str: The input string.
- * @c: The character to count.
+ * @cp: The character to count.
  *
  * Return: The count of occurrences-1.
  */
-unsigned int char_count_piped(char *str, char c)
+unsigned int char_count_piped(char *str, char cp)
 {
 	unsigned int count = 0;
 
 	while (*str != '\0')
 	{
-		if (*str == c)
+		if (*str == cp)
 			count++;
 		str++;
 	}
