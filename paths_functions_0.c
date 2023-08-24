@@ -1,10 +1,9 @@
 #include "shell.h"
 /**
- * paths functions
- * @add_node:
- * @head:
- * @_list_paths: 
- * Return: 1
+ * add_node - a function to modify the path.
+ * @head: the first node of the path.
+ * @path: .
+ * Return: pointer.
  */
 _list_paths *add_node(_list_paths **head, char *path)
 {
@@ -70,8 +69,7 @@ _list_paths *set_all_paths_to_list()
 
 	path_var_cpy = _strdup(path_variable);
 	if (path_var_cpy == NULL)
-		return (NULL); 
-		/*can't copy*/
+		return (NULL);
 
 	token = _strtok(path_var_cpy, ":");
 	while (token != NULL)
@@ -80,11 +78,11 @@ _list_paths *set_all_paths_to_list()
 		token = _strtok(NULL, ":");
 	}
 	free(path_var_cpy);
-	return (paths_list); 
+	return (paths_list);
 	/*does't have access*/
 }
 /**
- * @_list_paths:
+ * _list_paths:.
  * @set_all_vector_to_list:
  * Return: paths_list
  */
@@ -109,9 +107,9 @@ _list_paths *set_all_vector_to_list()
 	return (paths_list); /*Retrun paths_list*/
 }
 /**
- * @check_access: 
- * @line_av_1: 
- * @current: pointer to the current
+ * check_access .
+ * @line_av_1:.
+ * @current: pointer to the current.
  * Return:	NULL
  */
 
