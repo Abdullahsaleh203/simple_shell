@@ -1,9 +1,10 @@
 #include "shell.h"
+
 /**
- * add_node - a function to modify the path.
- * @head: the first node of the path.
- * @path: .
- * Return: pointer.
+ * add_node - Add a new node to the list.
+ * @head: Pointer to the head of the list.
+ * @path: Path to add.
+ * Return: Pointer to the new node.
  */
 _list_paths *add_node(_list_paths **head, char *path)
 {
@@ -35,14 +36,12 @@ _list_paths *add_node(_list_paths **head, char *path)
 	return (l);
 }
 
-/***
- * free_list - frees a list_t list.
- * @head: pointer to a head pointer
- * free(head)
+/**
+ * free_list - Frees a list of paths.
+ * @head: Pointer to the head of the list.
  */
 void free_list(_list_paths *head)
 {
-
 	if (head == NULL)
 	{
 		return;
@@ -52,9 +51,10 @@ void free_list(_list_paths *head)
 		free(head->path);
 	free(head);
 }
-/***
- * @set_all_paths_to_list:
- * Return:paths_list
+
+/**
+ * set_all_paths_to_list - Set all paths to a linked list.
+ * Return: Paths list.
  */
 _list_paths *set_all_paths_to_list()
 {
@@ -79,12 +79,11 @@ _list_paths *set_all_paths_to_list()
 	}
 	free(path_var_cpy);
 	return (paths_list);
-	/*does't have access*/
 }
+
 /**
- * _list_paths:.
- * @set_all_vector_to_list:
- * Return: paths_list
+ * set_all_vector_to_list - Set all environment variables to a linked list.
+ * Return: Paths list.
  */
 _list_paths *set_all_vector_to_list()
 {
@@ -98,21 +97,21 @@ _list_paths *set_all_vector_to_list()
 		return (NULL);
 	while (environ[x])
 	{
-		path_var_cpy = environ[i];
+		path_var_cpy = environ[x];
 		if (path_var_cpy == NULL)
 			return (NULL);
 		add_node(&paths_list, path_var_cpy);
 		x++;
 	}
-	return (paths_list); /*Retrun paths_list*/
+	return (paths_list);
 }
-/**
- * check_access .
- * @line_av_1:.
- * @current: pointer to the current.
- * Return:	NULL
- */
 
+/**
+ * check_access - Check access to a file in all paths.
+ * @line_av_1: The command to check access for.
+ * @current: Pointer to the current path in the list.
+ * Return: Full path if found, otherwise NULL.
+ */
 char *check_access(char *line_av_1, _list_paths *current)
 {
 	char *full_path;
@@ -148,3 +147,6 @@ char *check_access(char *line_av_1, _list_paths *current)
 	else
 		return (NULL);
 }
+
+/* You can add main function or other parts of your program here */
+
