@@ -39,9 +39,9 @@ int _strcmp(char *s1, char *s2);
 char *_get_env(char *name);
 void free_list(_list_paths *head);
 int _strlen(char *s);
-ssize_t _get_line_Helper(char **lineptr, size_t *n,
+ssize_t _getline_Helper(char **lineptr, size_t *n,
 __attribute__((unused)) FILE * stream);
-ssize_t _get_line(char **lineptr, size_t *n, FILE *stream);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 char *_strdup(char *str);
 char *_str_cat(char *dest, char *src);
 char *_str_cpy(char *dest, char *src);
@@ -54,7 +54,7 @@ unsigned int char_count(char *str, char c);
 void free_all(char **lines, int counter, _list_paths *env,
 _list_paths *current, char *line, char **line_vector);
 int _var_cmp(char *var_name, char *full_var);
-void _set_env(char *name, char *value, _list_paths *env_list);
+void _setenv(char *name, char *value, _list_paths *env_list);
 _list_paths *get_variable(char *name, _list_paths *head);
 size_t print_list(const _list_paths *p);
 void set_list_env(_list_paths *p);

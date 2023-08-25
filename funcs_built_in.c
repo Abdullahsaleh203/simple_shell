@@ -85,10 +85,10 @@ int is_built_in(char *line, char **line_vector, _list_paths *current,
 			_cd(line_vector, argv);
 			break;
 		case 3:
-			_set_env(line_vector[1], line_vector[2], env_list);
+			_setenv(line_vector[1], line_vector[2], env_list);
 			break;
 		case 4:
-			_set_env(line_vector[1], line_vector[2], env_list);
+			_setenv(line_vector[1], line_vector[2], env_list);
 			break;
 		default:
 			return (-1);
@@ -96,13 +96,13 @@ int is_built_in(char *line, char **line_vector, _list_paths *current,
 	return (0);
 }
 /**
- * _set_env - .
+ * _setenv - .
  * @name: .
  * @value: .
  * @env_list: .
  * Return: void
  */
-void _set_env(char *name, char *value, _list_paths *env_list)
+void _setenv(char *name, char *value, _list_paths *env_list)
 {
 	_list_paths *var;
 	char *full_var;

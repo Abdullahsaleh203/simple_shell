@@ -7,13 +7,13 @@
  */
 char *get_command_from_user(_list_paths *current)
 {
-	ssize_t nread;
+	ssize_t readd;
 	size_t n = 0;
 	char *line = NULL;
 
 	write(STDOUT_FILENO, "*_^->$ ", 7);
-	nread = _get_line(&line, &n, stdin);
-	if (nread == EOF)
+	readd = _getline(&line, &n, stdin);
+	if (readd == EOF)
 	{
 		write(STDOUT_FILENO, "\n", 1);
 		free(line);
@@ -21,12 +21,12 @@ char *get_command_from_user(_list_paths *current)
 		exit(0);
 	}
 
-	if (line[0] == '\n' && nread == 1)
+	if (line[0] == '\n' && readd == 1)
 	{
 		free(line);
 		return (NULL);
 	}
-	line[nread - 1] = '\0';
+	line[readd - 1] = '\0';
 
 	return (line);
 }
