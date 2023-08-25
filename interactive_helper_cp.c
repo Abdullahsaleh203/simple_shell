@@ -9,7 +9,7 @@ char *get_command_from_user(_list_paths *current)
 {
 	ssize_t readd;
 	size_t n = 0;
-	char *line = NULL;
+	char *line = NULL ;
 
 	write(STDOUT_FILENO, "*_^->$ ", 7);
 	readd = _getline(&line, &n, stdin);
