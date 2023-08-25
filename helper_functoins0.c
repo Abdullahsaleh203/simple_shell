@@ -5,7 +5,7 @@
  * @name: The name of the var.
  * @head: The head of the linked list.
  *
- * Return: Pointer to the var node or NULL if not found.
+ * Return: Pointer to the var node or NULL if not found .
  */
 _list_paths *get_variable(char *name, _list_paths *head)
 {
