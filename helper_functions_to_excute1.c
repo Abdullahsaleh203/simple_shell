@@ -6,7 +6,7 @@
  * @line: The input line.
  * @av: The array of arguments.
  * @status: The status.
- * Return: The command.
+ * Return: The command .
  */
 char *get_av_with_flags_helper(char *token, char *line, char **av, int status)
 {
