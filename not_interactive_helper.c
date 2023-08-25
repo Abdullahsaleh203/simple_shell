@@ -73,7 +73,7 @@ char **piped_non_interactive()
 }
 
 /**
- * text_to_vector  .
+ * text_to_vector-.
  * @text: .
  * Return: lines.
  */
@@ -103,7 +103,7 @@ char **text_to_vector(char *text)
 	return (lines);
 }
 /**
- * file_non_interactive get commands from a non-interactive file.
+ * file_non_interactive - get commands from a non-interactive file.
  * @file_name: The name of the shell program.
  * @program_shell:  The name of the shell program.
  * Return: array of string containing the commands
@@ -117,7 +117,7 @@ char **file_non_interactive(char *file_name, char *program_shell)
 
 	if (stat(file_name, &fileStat) != -1)
 	{
-		if (S_ISREG(fileStat.st_o_mode))
+		if (S_ISREG(fileStat.st_mode))
 		{
 			file_descriptor = open(file_name, O_RDONLY);
 			if (file_descriptor  == -1)
@@ -150,3 +150,4 @@ char **file_non_interactive(char *file_name, char *program_shell)
 	}
 	return (NULL);
 }
+

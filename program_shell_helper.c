@@ -32,7 +32,8 @@ int check_mode(int argc)
  * @lines: Ptr to command lines.
  */
 void is_exit(char *line, char **line_vector, _list_paths *current,
-		char *program_shell, int counter, int *status, _list_paths *env, char **lines)
+		char *program_shell, int counter
+		, int *status, _list_paths *env, char **lines)
 {
 	int n;
 
@@ -148,4 +149,5 @@ void free_vector(char **argv)
 
 	free(argv);
 }
+
 

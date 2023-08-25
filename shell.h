@@ -45,7 +45,7 @@ ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 char *_strdup(char *str);
 char *_strcat(char *dest, char *src);
 char *_strcpy(char *dest, char *src);
-_list_paths *add_node(list_path **head, char *path);
+_list_paths *add_node(_list_paths **head, char *path);
 _list_paths *set_all_paths_to_list();
 _list_paths *set_all_vector_to_list();
 char **get_av_with_flags(char *line, int status);
@@ -70,7 +70,7 @@ char **text_to_vector(char *text);
 char **file_non_interactive(char *file_name, char *program_shell);
 char **piped_non_interactive();
 char **get_commands(int o_mode, char *file_name, char *program_shell);
-void free_l_v(char *line, char **line_vector);
+void free_li_vec(char *line, char **line_vector);
 int is_dir(char *line, char **argv, int counter,
 char **line_vector, int *status, char *old_line);
 int _atoi(char *s);
@@ -81,8 +81,7 @@ char *command, int type_of_error);
 void handle_comments(char *input);
 /*=___=*/
 void handle_semicolons(char *line);
-void execute_command_with_waitpid(c
-har *path, char **av, char **env);
+void execute_command_with_waitpid(char *path, char **av, char **env);
 /*----*/
 char *num_to_char(int num);
 char *check_access(char *line_av_1, _list_paths *current);
@@ -100,4 +99,5 @@ char *get_command_from_user(_list_paths *current);
 int check_mode(int argc);
 void free_vector(char **vec);
 #endif
+
 

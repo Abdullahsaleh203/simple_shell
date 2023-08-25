@@ -3,7 +3,6 @@
 /**
  * get_command_from_user - Get a command from the user interactively.
  * @current: The current variable.
- *
  * Return: The entered line.
  */
 char *get_command_from_user(_list_paths *current)

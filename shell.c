@@ -12,13 +12,12 @@ int main(int argc, char *argv[], char *env[])
 	int o_mode, counter = 0, *status, t = 0, non_int_count = 1;
 	char *line, **line_vector = NULL, **lines = NULL;
 	_list_paths *current;
-
+	/*check mode*/
 	status = &t;
 	o_mode = check_mode(argc);
 	if (o_mode != INTERACTIVE)
 		lines = get_commands(o_mode, argv[1], argv[0]);
 	current = set_all_paths_to_list();
-
 	while (++counter && non_int_count)
 	{
 		if (o_mode == NON_INTERACTIVE_PIPED || o_mode == NON_INTERACTIVE_FILE)
@@ -33,7 +32,6 @@ int main(int argc, char *argv[], char *env[])
 		}
 		else if (o_mode == INTERACTIVE)
 			line = get_command_from_user(current);
-
 		if (!line)
 			continue;
 		line_vector = get_av_with_flags(line, *status);
@@ -42,20 +40,16 @@ int main(int argc, char *argv[], char *env[])
 			free(line);
 			continue;
 		}
-
 		if (is_dir(line_vector[0], argv, counter, line_vector, status, line) == 0)
 			continue;
-
-		if (is_built_in(line, line_vector, current, argv[0], counter, status, NULL, lines, argv) != 0)
+		if (is_built_in(line, line_vector,
+		 current, argv[0], counter, status, NULL, lines, argv) != 0)
 			is_not_built_in(line_vector, env, status, counter, current, argv);
-
 		free_li_vec(line, line_vector);
 	}
-
 	free_list(current);
 	exit(*status);
 }
-
 /**
  * print_list - Print a list of paths.
  * @p: Reference to list of paths.
@@ -178,4 +172,5 @@ void is_not_built_in(char **line_vector, char *env[], int *status,
 		}
 	}
 }
+
 
