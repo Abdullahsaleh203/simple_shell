@@ -25,7 +25,7 @@ char *get_av_with_flags_helper(char *token, char *line, char **av, int status)
 		cmd = get_status(status);
 	else if ((token[0] == '$') && (token[1]))
 	{
-		var = _getenv(&token[1]);
+		var = _get_env(&token[1]);
 		if (var)
 			cmd = _strdup(var);
 		else
@@ -69,7 +69,7 @@ char **get_av_with_flags(char *line, int status)
 				cmd = get_status(status);
 			else if ((token[0] == '$') && (token[1]))
 			{
-				var = _getenv(&token[1]);
+				var = _get_env(&token[1]);
 				if (var)
 					cmd = _strdup(var);
 				else
@@ -108,11 +108,11 @@ void exit_check(int nread, char *exit_cmd)
 }
 
 /**
- * _getenv - get value of an env var.
+ * _get_env - get value of an env var.
  * @name: the name of the env variable.
  * Return: the value of the env var, or NULL if not found.
  */
-char *_getenv(char *name)
+char *_get_env(char *name)
 {
 	int i = 0, j = 0;
 
@@ -151,3 +151,4 @@ unsigned int char_count(char *str, char c)
 	}
 	return (count + 1);
 }
+

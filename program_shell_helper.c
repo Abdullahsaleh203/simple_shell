@@ -1,11 +1,11 @@
 #include "shell.h"
 
 /**
- * check_mode - Determine the operating mode of the shell.
+ * checker_mode - Determine the operating mode of the shell.
  * @argc: Argument count.
  * Return: Operating mode.
  */
-int check_mode(int argc)
+int checker_mode(int argc)
 {
 	struct stat stdin_stat;
 
@@ -13,9 +13,9 @@ int check_mode(int argc)
 	if (isatty(STDIN_FILENO) && argc == 1)
 		return (INTERACTIVE);
 	if ((!isatty(STDIN_FILENO) && argc == 1))
-		return (NON_INTERACTIVE_PIPED);
+		return (NOT_INTERACTIVE_PIPED);
 	if ((argc >= 1))
-		return (NON_INTERACTIVE_FILE);
+		return (NOT_INTERACTIVE_FILE);
 
 	return (ERROR);
 }
@@ -70,7 +70,7 @@ void is_exit(char *line, char **line_vector, _list_paths *current,
 }
 
 /**
- * _atoi - convert a string to an int.
+ * _atoi - convert a str to an int.
  * @s: Input str.
  * Return: converted int, or -1 if not a valid int.
  */
@@ -130,10 +130,10 @@ void execute_command(char *path, char **av, char **env, int *status)
 }
 
 /**
- * free_vector - free a vector of strings.
- * @argv: Vector to free.
+ * free_vec - free a vec of strings.
+ * @argv: Vec to free.
  */
-void free_vector(char **argv)
+void free_vec(char **argv)
 {
 	char **curr;
 
@@ -149,5 +149,6 @@ void free_vector(char **argv)
 
 	free(argv);
 }
+
 
 

@@ -57,17 +57,17 @@ char *_strdup(char *str)
 	if (arr == NULL)
 		return (NULL);
 
-	_strcpy(arr, str);
+	_str_cpy(arr, str);
 	return (arr);
 }
 
 /**
- * _strcpy - Copies a str.
+ * _str_cpy - Copies a str.
  * @dest: destination buffer.
  * @src: Source st.
  * Return: A Ptr to the destination str.
  */
-char *_strcpy(char *dest, char *src)
+char *_str_cpy(char *dest, char *src)
 {
 	int i;
 
@@ -80,12 +80,12 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- * _strcat - concatenates two str.
+ * _str_cat - concatenates two str.
  * @dest: Destination str.
  * @src: Source str.
  * Return: A Ptr to the resulting str.
  */
-char *_strcat(char *dest, char *src)
+char *_str_cat(char *dest, char *src)
 {
 	int len = _strlen(dest);
 	int i;
@@ -97,4 +97,5 @@ char *_strcat(char *dest, char *src)
 	dest[len + i] = '\0';
 	return (dest);
 }
+
 

@@ -13,7 +13,7 @@ void print_error(char *program_shell, int counter,
 {
 	char *counter_s;
 
-	counter_s = num_to_char(counter);
+	counter_s = number_to_char(counter);
 	write(STDERR_FILENO, program_shell, _strlen(program_shell));
 	write(STDERR_FILENO, ": ", 2);
 	write(STDERR_FILENO, counter_s, _strlen(counter_s));
@@ -47,7 +47,7 @@ void print_cant_open(char *program_shell, int counter, char *file_name)
 {
 	char *counter_s;
 
-	counter_s = num_to_char(counter);
+	counter_s = number_to_char(counter);
 	write(STDERR_FILENO, program_shell, _strlen(program_shell));
 	write(STDERR_FILENO, ": ", 2);
 	write(STDERR_FILENO, counter_s, _strlen(counter_s));
@@ -57,4 +57,5 @@ void print_cant_open(char *program_shell, int counter, char *file_name)
 	write(STDERR_FILENO, "\n", 1);
 	free(counter_s);
 }
+
 

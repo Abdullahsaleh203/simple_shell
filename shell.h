@@ -12,8 +12,8 @@
 #include <dirent.h>
 /*my owne macros*/
 #define INTERACTIVE 1
-#define NON_INTERACTIVE_FILE 0
-#define NON_INTERACTIVE_PIPED 2
+#define NOT_INTERACTIVE_FILE 0
+#define NOT_INTERACTIVE_PIPED 2
 #define ERROR -1
 /*The Error status macros*/
 #define NOT_FOUND 127
@@ -36,15 +36,15 @@ typedef struct _list_paths
 	struct _list_paths *next;
 } _list_paths;
 int _strcmp(char *s1, char *s2);
-char *_getenv(char *name);
+char *_get_env(char *name);
 void free_list(_list_paths *head);
 int _strlen(char *s);
-ssize_t _getlineHelper(char **lineptr, size_t *n,
+ssize_t _get_line_Helper(char **lineptr, size_t *n,
 __attribute__((unused)) FILE * stream);
-ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
+ssize_t _get_line(char **lineptr, size_t *n, FILE *stream);
 char *_strdup(char *str);
-char *_strcat(char *dest, char *src);
-char *_strcpy(char *dest, char *src);
+char *_str_cat(char *dest, char *src);
+char *_str_cpy(char *dest, char *src);
 _list_paths *add_node(_list_paths **head, char *path);
 _list_paths *set_all_paths_to_list();
 _list_paths *set_all_vector_to_list();
@@ -53,22 +53,22 @@ unsigned int char_count(char *str, char c);
 /*----------*/
 void free_all(char **lines, int counter, _list_paths *env,
 _list_paths *current, char *line, char **line_vector);
-int _varcmp(char *var_name, char *full_var);
-void _setenv(char *name, char *value, _list_paths *env_list);
+int _var_cmp(char *var_name, char *full_var);
+void _set_env(char *name, char *value, _list_paths *env_list);
 _list_paths *get_variable(char *name, _list_paths *head);
 size_t print_list(const _list_paths *p);
 void set_list_env(_list_paths *p);
 size_t env_list_len(const _list_paths *p);
 int _cd(char *line_vector[], char **argv);
-unsigned int _chrCheck(char c, const char *str);
+unsigned int _chr_Check(char c, const char *str);
 char *_strtok(char *str, const char *delim);
 unsigned int char_count_piped(char *str, char c);
 void print_cant_open(char *program_name, int counter, char *file_name);
 void is_not_built_in(char **line_vector, char *env[], int *status,
 int counter, _list_paths *current, char *argv[]);
 char **text_to_vector(char *text);
-char **file_non_interactive(char *file_name, char *program_shell);
-char **piped_non_interactive();
+char **file_not_interactive(char *file_name, char *program_shell);
+char **piped_not_interactive();
 char **get_commands(int o_mode, char *file_name, char *program_shell);
 void free_li_vec(char *line, char **line_vector);
 int is_dir(char *line, char **argv, int counter,
@@ -79,11 +79,11 @@ char *program_shell, int counter, int *status, _list_paths *env, char **lines);
 void print_error(char *program_shell, int counter,
 char *command, int type_of_error);
 void handle_comments(char *input);
-/*=___=*/
+/*=------------------=*/
 void handle_semicolons(char *line);
 void execute_command_with_waitpid(char *path, char **av, char **env);
-/*----*/
-char *num_to_char(int num);
+/*-------------------*/
+char *number_to_char(int num);
 char *check_access(char *line_av_1, _list_paths *current);
 void execute_command(char *path, char **av, char **env, int *status);
 void print_env(int *status);
@@ -96,8 +96,6 @@ void print_error(char *program_shell, int counter,
 char *command, int type_of_error);
 char *get_command_from_file(char *file);
 char *get_command_from_user(_list_paths *current);
-int check_mode(int argc);
-void free_vector(char **vec);
+int checker_mode(int argc);
+void free_vec(char **vec);
 #endif
-
-

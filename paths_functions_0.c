@@ -2,9 +2,9 @@
 
 /**
  * add_node - Add a new node to the list.
- * @head: Pointer to the head of the list.
+ * @head: Ptr to the head of the list.
  * @path: Path to add.
- * Return: Pointer to the new node.
+ * Return: Ptr to the new node.
  */
 _list_paths *add_node(_list_paths **head, char *path)
 {
@@ -38,7 +38,7 @@ _list_paths *add_node(_list_paths **head, char *path)
 
 /**
  * free_list - Frees a list of paths.
- * @head: Pointer to the head of the list.
+ * @head: Ptr to the head of the list.
  */
 void free_list(_list_paths *head)
 {
@@ -63,7 +63,7 @@ _list_paths *set_all_paths_to_list()
 
 	paths_list = NULL;
 
-	path_variable = _getenv("PATH");
+	path_variable = _get_env("PATH");
 	if (path_variable == NULL)
 		return (NULL);
 
@@ -107,9 +107,9 @@ _list_paths *set_all_vector_to_list()
 }
 
 /**
- * check_access - Check access to a file in all paths.
+ * check_access - check access to a file in all paths.
  * @line_av_1: The command to check access for.
- * @current: Pointer to the current path in the list.
+ * @current: Ptr to the current path in the list.
  * Return: Full path if found, otherwise NULL.
  */
 char *check_access(char *line_av_1, _list_paths *current)
@@ -128,9 +128,9 @@ char *check_access(char *line_av_1, _list_paths *current)
 			continue;
 		}
 		full_path = (char *)malloc(len * sizeof(char));
-		_strcpy(full_path, current->path);
-		_strcat(full_path, "/");
-		_strcat(full_path, line_av_1);
+		_str_cpy(full_path, current->path);
+		_str_cat(full_path, "/");
+		_str_cat(full_path, line_av_1);
 		if (access(full_path, X_OK) == 0)
 		{
 			found = 1;
@@ -149,4 +149,5 @@ char *check_access(char *line_av_1, _list_paths *current)
 }
 
 /* You can add main function or other parts of your program here */
+
 

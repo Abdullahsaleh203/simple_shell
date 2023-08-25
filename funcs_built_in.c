@@ -25,7 +25,7 @@ char *get_status(int n)
 {
 	char *status;
 
-	status = num_to_char(n);
+	status = number_to_char(n);
 	return (status);
 }
 /**
@@ -37,7 +37,7 @@ char *get_process_id()
 	char *ppid_s;
 	pid_t pid = getpid();
 
-	ppid_s = num_to_char(pid);
+	ppid_s = number_to_char(pid);
 
 	return (ppid_s);
 }
@@ -85,10 +85,10 @@ int is_built_in(char *line, char **line_vector, _list_paths *current,
 			_cd(line_vector, argv);
 			break;
 		case 3:
-			_setenv(line_vector[1], line_vector[2], env_list);
+			_set_env(line_vector[1], line_vector[2], env_list);
 			break;
 		case 4:
-			_setenv(line_vector[1], line_vector[2], env_list);
+			_set_env(line_vector[1], line_vector[2], env_list);
 			break;
 		default:
 			return (-1);
@@ -96,13 +96,13 @@ int is_built_in(char *line, char **line_vector, _list_paths *current,
 	return (0);
 }
 /**
- * _setenv - .
+ * _set_env - .
  * @name: .
  * @value: .
  * @env_list: .
  * Return: void
  */
-void _setenv(char *name, char *value, _list_paths *env_list)
+void _set_env(char *name, char *value, _list_paths *env_list)
 {
 	_list_paths *var;
 	char *full_var;
@@ -114,10 +114,10 @@ void _setenv(char *name, char *value, _list_paths *env_list)
 	{
 		perror("setenv ERROR");
 	}
-	full_var = _strcpy(full_var, name);
+	full_var = _str_cpy(full_var, name);
 	full_var[_strlen(name)] = '=';
 	full_var[_strlen(name) + 1] = '\0';
-	full_var = _strcat(full_var, value);
+	full_var = _str_cat(full_var, value);
 	full_var[count - 1] = '\0';
 	var = get_variable(name, env_list);
 	if (var == 0)
@@ -133,3 +133,4 @@ void _setenv(char *name, char *value, _list_paths *env_list)
 	}
 	print_list(env_list);
 }
+

@@ -10,25 +10,25 @@ char **get_commands(int o_mode, char *file_name, char *program_shell)
 {
 	char **lines = NULL;
 
-	if (o_mode == NON_INTERACTIVE_PIPED)
+	if (o_mode == NOT_INTERACTIVE_PIPED)
 	{
-		lines = piped_non_interactive();
+		lines = piped_not_interactive();
 		if (!lines)
 			exit(0);
 	}
-	else if (o_mode == NON_INTERACTIVE_FILE)
+	else if (o_mode == NOT_INTERACTIVE_FILE)
 	{
-		lines = file_non_interactive(file_name, program_shell);
+		lines = file_not_interactive(file_name, program_shell);
 		if (!lines)
 			exit(0);
 	}
 	return (lines);
 }
 /**
- * piped_non_interactive - Get commands from non-interactive piped input.
+ * piped_not_interactive - Get commands from non-interactive piped input.
  * Return: array of str containing the commands.
  */
-char **piped_non_interactive()
+char **piped_not_interactive()
 {
 	char b[2048], *text = NULL, **lines = NULL;
 	ssize_t bytesRead;
@@ -65,7 +65,7 @@ char **piped_non_interactive()
 	text = (char *)malloc((totalchar + 1) * sizeof(char));
 	if (text != NULL)
 	{
-		_strcpy(text, b);
+		_str_cpy(text, b);
 		text[totalchar] = '\0';
 		lines = text_to_vector(text);
 	}
@@ -103,12 +103,12 @@ char **text_to_vector(char *text)
 	return (lines);
 }
 /**
- * file_non_interactive - get commands from a non-interactive file.
+ * file_not_interactive - get commands from a non-interactive file.
  * @file_name: The name of the shell program.
  * @program_shell:  The name of the shell program.
  * Return: array of string containing the commands
  */
-char **file_non_interactive(char *file_name, char *program_shell)
+char **file_not_interactive(char *file_name, char *program_shell)
 {
 	struct stat fileStat;
 	char *text, **lines;
@@ -150,4 +150,6 @@ char **file_non_interactive(char *file_name, char *program_shell)
 	}
 	return (NULL);
 }
+
+
 

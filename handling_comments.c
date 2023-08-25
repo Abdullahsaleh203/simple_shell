@@ -50,9 +50,9 @@ int _cd(char **line_vector, char **argv)
 		return (1);
 	}
 	if (dir == NULL || _strcmp(dir, "~") == 0)
-		dir = _getenv("HOME");
+		dir = _get_env("HOME");
 	else if (_strcmp(dir, "-") == 0)
-		dir = _getenv("OLDPWD");
+		dir = _get_env("OLDPWD");
 	if (chdir(dir) == -1)
 	{
 		write(STDERR_FILENO, argv[0], _strlen(argv[0]));
@@ -102,3 +102,4 @@ void free_all(char **lines, int counter, _list_paths *env,
 	free_list(current);
 	free_li_vec(line, line_vector);
 }
+

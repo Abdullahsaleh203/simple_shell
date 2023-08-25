@@ -12,12 +12,12 @@ char *_strtok(char *str, const char *delimiters)
 }
 
 /**
- * _chrCheck - .
+ * _chr_Check - .
  * @c: .
  * @str: .
  * Return: .
  */
-unsigned int _chrCheck(char c, const char *str)
+unsigned int _chr_Check(char c, const char *str)
 {
 	unsigned int i;
 
@@ -37,7 +37,7 @@ unsigned int _chrCheck(char c, const char *str)
 void free_li_vec(char *line, char **line_vec)
 {
 	free(line);
-	free_vector(line_vec);
+	free_vec(line_vec);
 }
 
 /**
@@ -67,3 +67,4 @@ int is_dir(char *line, char **argv, int counter, char **line_vec,
 	}
 	return (-1);
 }
+

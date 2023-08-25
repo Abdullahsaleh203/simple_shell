@@ -11,8 +11,8 @@ char *get_command_from_user(_list_paths *current)
 	size_t n = 0;
 	char *line = NULL;
 
-	write(STDOUT_FILENO, "^_* -> ", 7);
-	nread = _getline(&line, &n, stdin);
+	write(STDOUT_FILENO, "*_^->$ ", 7);
+	nread = _get_line(&line, &n, stdin);
 	if (nread == EOF)
 	{
 		write(STDOUT_FILENO, "\n", 1);
@@ -41,4 +41,5 @@ char *get_command_from_file(char *file)
 {
 	return (file);
 }
+
 

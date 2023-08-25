@@ -14,13 +14,13 @@ int main(int argc, char *argv[], char *env[])
 	_list_paths *current;
 	/*check mode*/
 	status = &t;
-	o_mode = check_mode(argc);
+	o_mode = checker_mode(argc);
 	if (o_mode != INTERACTIVE)
 		lines = get_commands(o_mode, argv[1], argv[0]);
 	current = set_all_paths_to_list();
 	while (++counter && non_int_count)
 	{
-		if (o_mode == NON_INTERACTIVE_PIPED || o_mode == NON_INTERACTIVE_FILE)
+		if (o_mode == NOT_INTERACTIVE_PIPED || o_mode == NOT_INTERACTIVE_FILE)
 		{
 			if (lines[counter - 1])
 				line = lines[counter - 1];
@@ -172,5 +172,6 @@ void is_not_built_in(char **line_vector, char *env[], int *status,
 		}
 	}
 }
+
 
 

@@ -11,7 +11,7 @@ _list_paths *get_variable(char *name, _list_paths *head)
 {
 	while (head)
 	{
-		if (_varcmp(name, head->path))
+		if (_var_cmp(name, head->path))
 			return (head);
 		head = head->next;
 	}
@@ -20,13 +20,13 @@ _list_paths *get_variable(char *name, _list_paths *head)
 }
 
 /**
- * _varcmp - compare variable names.
+ * _var_cmp - compare variable names.
  * @var_name: the variable name to compare.
  * @full_var: the full var str.
  *
  * Return: (-1).
  */
-int _varcmp(char *var_name, char *full_var)
+int _var_cmp(char *var_name, char *full_var)
 {
 	int l;
 
@@ -43,12 +43,12 @@ int _varcmp(char *var_name, char *full_var)
 }
 
 /**
- * num_to_char - convert a number to a string.
+ * number_to_char - convert a number to a string.
  * @num: the number to convert.
  *
  * Return: the converted str.
  */
-char *num_to_char(int num)
+char *number_to_char(int num)
 {
 	int cp = 0, tmp = num;
 	char *cp_num;
@@ -104,4 +104,5 @@ unsigned int char_count_piped(char *str, char cp)
 
 	return (count + 1);
 }
+
 
